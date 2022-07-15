@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:quitanda/src/auth/components/custom_text_field.dart';
+import 'package:quitanda/src/config/custom_colors.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -8,19 +9,19 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: CustomColors.customSwatchColor,
       body: Column(children: <Widget>[
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Nome do App
-              const Text.rich(TextSpan(
-                  style: TextStyle(
-                    fontSize: 40,
+              Text.rich(TextSpan(
+                  style: const TextStyle(
+                    fontSize: 50,
                   ),
                   children: [
-                    TextSpan(
+                    const TextSpan(
                       text: 'Qui',
                       style: TextStyle(
                         color: Colors.white,
@@ -30,8 +31,7 @@ class SignInScreen extends StatelessWidget {
                     TextSpan(
                       text: 'tanda',
                       style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
+                        color: CustomColors.customContrastColor,
                       ),
                     ),
                   ])),
@@ -41,7 +41,7 @@ class SignInScreen extends StatelessWidget {
                 height: 30,
                 child: DefaultTextStyle(
                   style: const TextStyle(
-                    fontSize: 25,
+                    fontSize: 28,
                     color: Colors.white,
                   ),
                   child: AnimatedTextKit(
@@ -113,9 +113,9 @@ class SignInScreen extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text('Esqueceu sua senha?',
+                  child: Text('Esqueceu sua senha?',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: CustomColors.customContrastColor,
                       )),
                 ),
               ),
