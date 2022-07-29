@@ -2,7 +2,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quitanda/src/config/custom_colors.dart';
-import 'package:quitanda/src/home/components/category_tile.dart';
+
+import 'package:quitanda/src/pages/home/components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
   HomeTab({Key? key}) : super(key: key);
