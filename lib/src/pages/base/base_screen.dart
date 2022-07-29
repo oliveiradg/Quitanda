@@ -18,10 +18,10 @@ class _BaseScreenState extends State<BaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          HomeTab(),
+          const HomeTab(),
           Container(
             color: Colors.yellow,
           ),
