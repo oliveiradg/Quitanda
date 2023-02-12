@@ -1,3 +1,4 @@
+import 'package:quitanda/src/models/cart-item_model.dart';
 import 'package:quitanda/src/models/item_model.dart';
 
 ItemModel apple = ItemModel(
@@ -73,4 +74,18 @@ List<String> categories = [
   'laticinios',
   'bebidas',
   'outros',
+];
+
+// Lista de produtos
+
+List<CartItemModel> cartItem = [
+  CartItemModel(item: apple, quantity: 1),
+  CartItemModel(item: grape, quantity: 1),
+  CartItemModel(item: guava, quantity: 1),
+  CartItemModel(item: kiwi, quantity: 1),
+  CartItemModel(item: mango, quantity: 1),
+  CartItemModel(item: papaya, quantity: 1),
+
+
+
 ];

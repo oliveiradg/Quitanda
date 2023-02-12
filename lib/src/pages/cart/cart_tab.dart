@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quitanda/src/config/custom_colors.dart';
 import 'package:quitanda/src/services/utils_services.dart';
+import 'package:quitanda/src/config/app_data.dart' as appData;
 
 class CartTab extends StatelessWidget {
   CartTab({Key? key}) : super(key: key);
@@ -15,11 +16,13 @@ class CartTab extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Placeholder(),
-          ),
-          const SizedBox(
-            height: 20,
+          Expanded(
+            child: ListView.builder(
+              itemCount: appData.cartItem.length,
+              itemBuilder: (_, index) {
+                return Text(appData.cartItem[index].item.itemName);
+              },
+            ),
           ),
           Container(
             padding: const EdgeInsets.all(16),
@@ -60,26 +63,20 @@ class CartTab extends StatelessWidget {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: CustomColors.customSwatchColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    )
-                        ),
+                        primary: CustomColors.customSwatchColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        )),
                     onPressed: () {},
-                    child: const  Text('Concluir pedido',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
-
-                      ),
-                      ),
-                ),  
+                    child: const Text(
+                      'Concluir pedido',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
-                  
-                
-
-
-
+                ),
               ],
             ),
           ),
