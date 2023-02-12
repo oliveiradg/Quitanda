@@ -12,7 +12,7 @@ class QuantityWidget extends StatelessWidget {
     Key? key,
     required this.value,
     required this.suffixText,
-    required this.result,
+    required this.result, 
   }) : super(key: key);
 
   @override
@@ -31,6 +31,9 @@ class QuantityWidget extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
+
+
         children: [
           _QuantityButton(
             icon: Icons.remove,
