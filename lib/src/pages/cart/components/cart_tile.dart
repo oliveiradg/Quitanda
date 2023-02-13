@@ -1,17 +1,19 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:quitanda/src/config/custom_colors.dart';
 
+import 'package:quitanda/src/config/custom_colors.dart';
 import 'package:quitanda/src/models/cart-item_model.dart';
 import 'package:quitanda/src/pages/common_widgets/quantity_widget.dart';
 import 'package:quitanda/src/services/utils_services.dart';
 
 class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
+  final Function(CartItemModel) remove;
 
   const CartTile({
     Key? key,
     required this.cartItem,
+    required this.remove,
   }) : super(key: key);
 
   @override
@@ -20,6 +22,7 @@ class CartTile extends StatefulWidget {
 
 class _CartTileState extends State<CartTile> {
   final UtilsServices utilsServices = UtilsServices();
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +72,14 @@ class _CartTileState extends State<CartTile> {
                 widget.cartItem.quantity = quantity;
 
                 if (quantity == 0){
+
+                  //remover item do carrinho
+
+                  widget.remove(widget.cartItem);
+
+
                   
-                  widget.cartItem.item.isInCart = false;
+               
                 }
               });
             },
