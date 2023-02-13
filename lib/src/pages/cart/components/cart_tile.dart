@@ -6,62 +6,76 @@ import 'package:quitanda/src/models/cart-item_model.dart';
 import 'package:quitanda/src/pages/common_widgets/quantity_widget.dart';
 import 'package:quitanda/src/services/utils_services.dart';
 
-class CartTile extends StatelessWidget {
+class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
 
-   CartTile({
+  const CartTile({
     Key? key,
     required this.cartItem,
   }) : super(key: key);
 
+  @override
+  State<CartTile> createState() => _CartTileState();
+}
+
+class _CartTileState extends State<CartTile> {
   final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.fromLTRB(10, 10, 10, 0,),
+      margin: const EdgeInsets.fromLTRB(
+        10,
+        10,
+        10,
+        0,
+      ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
-        //Imagem
-        leading: Image.asset(
-          cartItem.item.imgUrl,
-          height: 60,
-          width: 60,
-        ),
-
-        //Titulo
-
-        title: Text(
-          cartItem.item.itemName,
-          style: const TextStyle(
-            
-            fontWeight: FontWeight.w500,
+          //Imagem
+          leading: Image.asset(
+            widget.cartItem.item.imgUrl,
+            height: 60,
+            width: 60,
           ),
-        ),
 
-        //Total
+          //Titulo
 
-        subtitle: Text(
-          utilsServices.priceToCurrency(cartItem.totalPrice()),
-          
-          style: TextStyle(
-            color: CustomColors.customSwatchColor,
-            fontWeight: FontWeight.bold,
+          title: Text(
+            widget.cartItem.item.itemName,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
 
-        //Quantidade
-        trailing:QuantityWidget(
-          suffixText: cartItem.item.unit, 
-          value: cartItem.quantity, 
-          result: (quantity) {  }, 
+          //Total
 
+          subtitle: Text(
+            utilsServices.priceToCurrency(widget.cartItem.totalPrice()),
+            style: TextStyle(
+              color: CustomColors.customSwatchColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
 
-        )
-        ),
-      
+          //Quantidade
+          trailing: QuantityWidget(
+            suffixText: widget.cartItem.item.unit,
+            value: widget.cartItem.quantity,
+            result: (quantity) {
+              setState(() {
+                widget.cartItem.quantity = quantity;
+
+                if (quantity == 0){
+                  
+                  widget.cartItem.item.isInCart = false;
+                }
+              });
+            },
+            isRemovable: true,
+          )),
     );
   }
 }

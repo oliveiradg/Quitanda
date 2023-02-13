@@ -80,10 +80,10 @@ List<String> categories = [
 
 List<CartItemModel> cartItem = [
   CartItemModel(item: apple, quantity: 1),
-  CartItemModel(item: grape, quantity: 1),
-  CartItemModel(item: guava, quantity: 1),
+  CartItemModel(item: grape, quantity: 2),
+  CartItemModel(item: guava, quantity: 3),
   CartItemModel(item: kiwi, quantity: 1),
-  CartItemModel(item: mango, quantity: 1),
+  CartItemModel(item: mango, quantity: 4),
   CartItemModel(item: papaya, quantity: 1),
 
 
