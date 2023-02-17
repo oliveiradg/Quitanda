@@ -1,10 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 
 import 'package:quitanda/src/pages/auth/signin_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(
+const  MyApp(), // Wrap your app
+  
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    
+   
       debugShowCheckedModeBanner: false,
       title: 'Quitanda',
       theme: ThemeData(
@@ -19,7 +24,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
+
+      
       home: const SignInScreen(),
+
     );
   }
 }
