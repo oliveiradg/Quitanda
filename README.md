@@ -1,11 +1,12 @@
 # Quitanda
 
- Desenvolvendo um App de Quitanda Virtual com Flutter + GetX! 
+ <h1> Desenvolvendo um App de Quitanda Virtual com Flutter + GetX! </h1>
 
 Criando do zero, um Aplicativo Completo de Quitanda Virtual, utilizando a tecnologia Flutter.
 
-#####Este processo está dividido em duas partes: 
-**primeiro será desenvolvida toda a interface do app de quitanda virtual (Flutter UI), aprendendo a utilizar inúmeros widgets existentes e também criando os nossos próprios! 
+Este processo está dividido em duas partes: 
+</br>
+**- Inicialmente será desenvolvida toda a interface do app de quitanda virtual (Flutter UI), aprendendo a utilizar inúmeros widgets existentes e também criando os nossos próprios!** 
 
 <br>
 <div align="center">
