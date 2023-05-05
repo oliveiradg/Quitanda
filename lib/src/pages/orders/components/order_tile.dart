@@ -16,7 +16,7 @@ class OrderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Card(
+    return Card(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
@@ -26,25 +26,64 @@ class OrderTile extends StatelessWidget {
         data: Theme.of(context).copyWith(
           dividerColor: Colors.transparent,
         ),
-        child:  ExpansionTile(
+        child: ExpansionTile(
           title: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:  [
+            children: [
               Text(
                 'Pedido: ${order.id}',
               ),
               Text(
-            utilsServices.formatDateTime(order.createdDateTime),
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-            ),
-          ),
+                utilsServices.formatDateTime(order.createdDateTime),
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                ),
+              ),
             ],
           ),
-          children: const [
-          
+          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          children: [
+            SizedBox(
+              height: 150,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ListView(
+                        children: order.items.map((orderItem) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Row(
+                          children: [
+                            Text('${orderItem.quantity} ${orderItem.item.unit}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            Expanded(
+                              child: Text(
+                                orderItem.item.itemName,
+                              ),
+                            ),
+                            Text(
+                              utilsServices.priceToCurrency(
+                                orderItem.totalPrice(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList()),
+                  ),
+                  Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.blue,
+                      )),
+                ],
+              ),
+            ),
           ],
         ),
       ),
